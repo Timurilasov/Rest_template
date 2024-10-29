@@ -39,7 +39,7 @@ public class UserService {
         HttpEntity<User> request = new HttpEntity<>(user, headers);
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(
                 BASE_URL, request, String.class);
-        return responseEntity.getBody(); // Возвращаем код
+        return responseEntity.getBody();
     }
 
     public String updateUser(User user) {
@@ -48,7 +48,7 @@ public class UserService {
         HttpEntity<User> request = new HttpEntity<>(user, headers);
         ResponseEntity<String> responseEntity = restTemplate.exchange(
                 BASE_URL, HttpMethod.PUT, request, String.class);
-        return responseEntity.getBody(); // Возвращаем код
+        return responseEntity.getBody(); 
     }
 
     public String deleteUser(Long userId) {
@@ -57,6 +57,6 @@ public class UserService {
         HttpEntity<Void> request = new HttpEntity<>(headers);
         ResponseEntity<String> responseEntity = restTemplate.exchange(
                 BASE_URL + "/" + userId, HttpMethod.DELETE, request, String.class);
-        return responseEntity.getBody(); // Возвращаем код
+        return responseEntity.getBody(); 
     }
 }
